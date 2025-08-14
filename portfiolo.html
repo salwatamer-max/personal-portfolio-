@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salwa Tamer - Network & System Administrator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 25%, #2c5364 50%, #1e3c72 75%, #2a5298 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Clean Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #3182ce;
+            background: #ebf8ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0f4c75 0%, #3282b8 25%, #0f4c75 50%, #1b262c 75%, #0f3460 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: slideUp 1s ease forwards;
+        }
+
+        .hero .role {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            font-weight: 300;
+            animation: slideUp 1s ease 0.2s forwards;
+        }
+
+        .hero .summary {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.85;
+            line-height: 1.7;
+            animation: slideUp 1s ease 0.4s forwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: slideUp 1s ease 0.6s forwards;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about {
+            background: #f7fafc;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .about-content h3 {
+            color: #3182ce;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(47, 133, 152, 0.2);
+            border-radius: 8px;
+            border-left: 4px solid #4fd1c7;
+            color: #e2e8f0;
+        }
+
+        .contact-item .icon {
+            color: #4fd1c7;
+            font-size: 1.2rem;
+        }
+
+        .contact-item strong {
+            color: #4fd1c7;
+        }
+
+        /* Value Proposition */
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .value-prop {
+            background: rgba(47, 133, 152, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(47, 133, 152, 0.3);
+            transition: all 0.3s ease;
+            color: #e2e8f0;
+        }
+
+        .value-prop:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            background: rgba(47, 133, 152, 0.15);
+        }
+
+        .value-prop .icon {
+            font-size: 3rem;
+            color: #4fd1c7;
+            margin-bottom: 1rem;
+        }
+
+        .value-prop h4 {
+            color: #4fd1c7;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .value-prop p {
+            color: #155b5b;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat {
+            text-align: center;
+            background: rgba(47, 133, 152, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(47, 133, 152, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4fd1c7;
+            display: block;
+        }
+
+        .stat-label {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e2e8f0;
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            margin-left: 2rem;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 2rem;
+            width: 12px;
+            height: 12px;
+            background: #3182ce;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-title {
+            color: #2d3748;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-company {
+            color: #3182ce;
+            font-weight: 500;
+        }
+
+        .experience-duration {
+            background: #ebf8ff;
+            color: #3182ce;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .experience-responsibilities {
+            list-style: none;
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .experience-responsibilities li {
+            padding-left: 1.5rem;
+            position: relative;
+            color: #4a5568;
+        }
+
+        .experience-responsibilities li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #3182ce;
+            font-weight: bold;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: #f7fafc;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: #ebf8ff;
+            color: #3182ce;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid #bee3f8;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        /* Education Section */
+        #education {
+            background: rgba(27, 38, 44, 0.6);
+            color: #e2e8f0;
+        }
+
+        #education .section-title {
+            color: #4fd1c7;
+        }
+
+        #education .section-subtitle {
+            color: #94a3b8;
+        }
+
+        .education-section h3 {
+            color: #4fd1c7;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .education-item,
+        .certification-item {
+            background: rgba(47, 133, 152, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(47, 133, 152, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover,
+        .certification-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background: rgba(47, 133, 152, 0.15);
+        }
+
+        .education-item h4,
+        .certification-item h4 {
+            color: #4fd1c7;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .education-item p,
+        .certification-item p {
+            color: #cbd5e0;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Activities Section - Enhanced */
+        .activities {
+            background: #f7fafc !important;
+            color: #2d3748 !important;
+            min-height: 600px;
+        }
+
+        .activities .section-title {
+            color: #2d3748 !important;
+        }
+
+        .activities .section-subtitle {
+            color: #718096 !important;
+        }
+
+        .activities-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+            gap: 2rem !important;
+        }
+
+        .activity-item {
+            background: white !important;
+            padding: 2rem !important;
+            border-radius: 12px !important;
+            border: 1px solid #e2e8f0 !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+        }
+
+        .activity-item:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .activity-item h4 {
+            color: #3182ce !important;
+            margin-bottom: 1rem !important;
+            font-size: 1.2rem !important;
+            font-weight: 600 !important;
+        }
+
+        .activity-item p {
+            color: #4a5568 !important;
+            line-height: 1.6 !important;
+            margin: 0 !important;
+        }
+
+        /* Contact Section - Enhanced */
+        .contact {
+            background: linear-gradient(135deg, #0f4c75 0%, #3282b8 25%, #0f4c75 50%, #1b262c 75%, #0f3460 100%) !important;
+            color: white !important;
+            text-align: center !important;
+            min-height: 400px;
+        }
+
+        .contact .section-title {
+            color: white !important;
+        }
+
+        .contact .section-subtitle {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        .contact-links {
+            display: flex !important;
+            justify-content: center !important;
+            gap: 1.5rem !important;
+            margin-top: 2rem !important;
+            flex-wrap: wrap !important;
+        }
+
+        .contact-link {
+            display: flex !important;
+            align-items: center !important;
+            gap: 0.5rem !important;
+            padding: 1rem 2rem !important;
+            background: rgba(255, 255, 255, 0.2) !important;
+            color: white !important;
+            text-decoration: none !important;
+            border-radius: 8px !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            transition: all 0.3s ease !important;
+            font-weight: 500 !important;
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            transform: translateY(-2px) !important;
+            color: white !important;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid,
+            .education-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .experience-item {
+                margin-left: 1rem;
+            }
+
+            .experience-timeline::before {
+                left: 0.5rem;
+            }
+
+            .experience-item::before {
+                left: -2.5rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav ul li a {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Salwa Tamer</h1>
+                <p class="role">Network & System Administrator</p>
+                <p class="summary">
+                    Results-driven IT professional with expertise in network infrastructure, 
+                    server administration, and cybersecurity. Proven track record of optimizing 
+                    enterprise environments and leading successful technology implementations.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary">Learn More</a>
+                    <a href="https://drive.google.com/file/d/1WJgOTdiwAIalcBdPJk8Y5KpjgOIkL5HQ/view?usp=drivesdk" class="btn btn-secondary" target="_blank">📄 Download CV</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title fade-in">About Me</h2>
+            <p class="section-subtitle fade-in">Professional Network & System Administrator based in Cairo, Egypt</p>
+            
+            <div class="about-grid fade-in">
+                <div class="about-content">
+                    <h3>Professional Summary</h3>
+                    <p>
+                        I'm a dedicated Network and System Administrator with 1+ years of hands-on experience 
+                        in managing and securing enterprise IT environments. My expertise spans network 
+                        infrastructure design, server administration, virtualization technologies, and 
+                        cybersecurity implementations.
+                    </p>
+                    <p>
+                        I excel at translating complex technical requirements into practical solutions that 
+                        drive business efficiency while maintaining the highest security standards.
+                    </p>
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="icon">📍</span>
+                            <div>
+                                <strong>Location:</strong> Cairo, Egypt
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">📧</span>
+                            <div>
+                                <strong>Email:</strong> salwatamer8901@gmail.com
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">📱</span>
+                            <div>
+                                <strong>Phone:</strong> +20 109 897 0248
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">🌐</span>
+                            <div>
+                                <strong>Languages:</strong> Arabic (Native), English (B2), French (Intermediate)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="color: #4fd1c7; margin-bottom: 2rem; font-size: 1.5rem; font-weight: 600;">What Sets Me Apart</h3>
+                    
+                    <div class="value-props">
+                        <div class="value-prop">
+                            <div class="icon">🔧</div>
+                            <h4>Technical Excellence</h4>
+                            <p>Expert in Cisco, Fortinet, VMware, and leading cloud platforms with hands-on automation experience</p>
+                        </div>
+                        <div class="value-prop">
+                            <div class="icon">🛡️</div>
+                            <h4>Security-First Approach</h4>
+                            <p>Implementing robust cybersecurity measures and monitoring systems to protect enterprise assets</p>
+                        </div>
+                        <div class="value-prop">
+                            <div class="icon">⚡</div>
+                            <h4>Process Optimization</h4>
+                            <p>Developing automation scripts and streamlined workflows to improve operational efficiency</p>
+                        </div>
+                        <div class="value-prop">
+                            <div class="icon">🎓</div>
+                            <h4>Continuous Learning</h4>
+                            <p>Actively pursuing certifications and staying current with emerging technologies and best practices</p>
+                        </div>
+                    </div>
+
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-number">1+</span>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">3</span>
+                            <div class="stat-label">Major Certifications</div>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">15+</span>
+                            <div class="stat-label">Technologies Mastered</div>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <div class="stat-label">Project Success Rate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title fade-in">Professional Experience</h2>
+            <p class="section-subtitle fade-in">Building robust IT infrastructure across government and private sectors</p>
+            
+            <div class="experience-timeline fade-in">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">System and Network Engineer</div>
+                            <div class="experience-company">Ministry of Communication and Information Technology (MCIT)</div>
+                        </div>
+                        <div class="experience-duration">October 2024 – Present</div>
+                    </div>
+                    <ul class="experience-responsibilities">
+                        <li>Designed and implemented LAN/WAN infrastructure for multi-site government organization, improving network performance by 40%</li>
+                        <li>Configured and managed Cisco routers, switches, and Fortinet firewalls ensuring 99.9% uptime</li>
+                        <li>Administered Windows and Linux servers including Active Directory, DNS, DHCP, and file servers for 500+ users</li>
+                        <li>Led virtualization platform deployment using VMware ESXi and Hyper-V, consolidating infrastructure and reducing costs by 30%</li>
+                        <li>Developed PowerShell and Bash automation scripts reducing manual tasks by 60% and improving system monitoring efficiency</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Software Testing Intern</div>
+                            <div class="experience-company">Valeo (Smart Village)</div>
+                        </div>
+                        <div class="experience-duration">November 2023 – May 2024</div>
+                    </div>
+                    <ul class="experience-responsibilities">
+                        <li>Executed comprehensive testing strategies for web and mobile applications across multiple platforms and browsers</li>
+                        <li>Performed functional, regression, and integration testing based on software requirements and user stories</li>
+                        <li>Managed bug reporting and tracking using JIRA, collaborating with development teams to resolve 200+ issues</li>
+                        <li>Actively participated in Agile methodologies including sprint planning, daily stand-ups, and retrospectives</li>
+                        <li>Created detailed test documentation and validated APIs using Postman ensuring robust application performance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title fade-in">Technical Expertise</h2>
+            <p class="section-subtitle fade-in">Comprehensive skill set spanning network infrastructure, system administration, and emerging technologies</p>
+            
+            <div class="skills-grid fade-in">
+                <div class="skill-category">
+                    <h3>🌐 Networking & Infrastructure</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Cisco Routing & Switching</span>
+                        <span class="skill-tag">Fortinet Firewalls</span>
+                        <span class="skill-tag">VLANs & VPNs</span>
+                        <span class="skill-tag">TCP/IP</span>
+                        <span class="skill-tag">Network Security</span>
+                        <span class="skill-tag">Load Balancing</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🖥️ System Administration</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Windows Server 2012-2019</span>
+                        <span class="skill-tag">Linux (Ubuntu, CentOS)</span>
+                        <span class="skill-tag">Active Directory</span>
+                        <span class="skill-tag">DNS/DHCP</span>
+                        <span class="skill-tag">File Servers</span>
+                        <span class="skill-tag">Group Policy</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>☁️ Virtualization & Cloud</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">VMware ESXi</span>
+                        <span class="skill-tag">Microsoft Hyper-V</span>
+                        <span class="skill-tag">Microsoft Azure</span>
+                        <span class="skill-tag">Amazon AWS</span>
+                        <span class="skill-tag">Container Technologies</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🔒 Security & Monitoring</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Nagios</span>
+                        <span class="skill-tag">Zabbix</span>
+                        <span class="skill-tag">SolarWinds</span>
+                        <span class="skill-tag">Wireshark</span>
+                        <span class="skill-tag">IDS/IPS</span>
+                        <span class="skill-tag">SIEM</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🛠️ Automation & DevOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PowerShell</span>
+                        <span class="skill-tag">Bash Scripting</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Ansible</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Git</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🗄️ Databases & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MS SQL Server</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">HAProxy</span>
+                        <span class="skill-tag">NGINX</span>
+                        <span class="skill-tag">JIRA</span>
+                        <span class="skill-tag">Postman</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title fade-in">Education & Certifications</h2>
+            <p class="section-subtitle fade-in">Strong academic foundation complemented by industry-recognized certifications</p>
+            
+            <div class="education-grid fade-in">
+                <div class="education-section">
+                    <h3>🎓 Education</h3>
+                    <div class="education-item">
+                        <h4>Bachelor of Engineering</h4>
+                        <p><strong>Electronics and Communication Department</strong></p>
+                        <p>Egyptian Academy for Engineering and Advanced Technology</p>
+                        <p><strong>June 2024</strong></p>
+                        <p>• GPA: 3.55 (Very Good with Honor)</p>
+                        <p>• Ranked 3rd in class of 120+ students</p>
+                        <p>• Graduation Project: A+ grade</p>
+                    </div>
+                    <div class="education-item">
+                        <h4>High School Diploma</h4>
+                        <p><strong>Mathematics Track</strong></p>
+                        <p>Ramses College for Girls</p>
+                        <p><strong>July 2019</strong></p>
+                    </div>
+                </div>
+
+                <div class="education-section">
+                    <h3>🏆 Professional Certifications</h3>
+                    <div class="certification-item">
+                        <h4>Cisco Certified Network Associate (CCNA)</h4>
+                        <p>Cisco Systems</p>
+                        <p><strong>September 2021</strong></p>
+                        <p>Networking fundamentals, IP services, security, automation</p>
+                    </div>
+                    <div class="certification-item">
+                        <h4>Huawei Certified ICT Associate (HCIA)</h4>
+                        <p>Huawei Technologies</p>
+                        <p><strong>September 2024</strong></p>
+                        <p>ICT fundamentals, routing, switching, enterprise networks</p>
+                    </div>
+                    <div class="certification-item">
+                        <h4>ISTQB Certified Tester – Foundation Level</h4>
+                        <p>Information Technology Institute (ITI)</p>
+                        <p><strong>July 2023</strong></p>
+                        <p>Software testing fundamentals, test techniques, lifecycle processes</p>
+                    </div>
+                    <div class="certification-item">
+                        <h4>Technical Training Certificate</h4>
+                        <p>Petrojet Company</p>
+                        <p><strong>2023</strong></p>
+                        <p>Fire Alarm Systems and CCTV/Camera System Installation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="activities">
+        <div class="container">
+            <h2 class="section-title fade-in">Leadership & Activities</h2>
+            <p class="section-subtitle fade-in">Active involvement in technical communities and professional development initiatives</p>
+            
+            <div class="activities-grid fade-in">
+                <div class="activity-item">
+                    <h4>Secretary, IEEE Student Branch</h4>
+                    <p>
+                        Organized technical workshops, speaker sessions, and networking events for 200+ students. 
+                        Managed communication between members and university faculty, facilitating knowledge sharing 
+                        and professional development opportunities in engineering and technology fields.
+                    </p>
+                </div>
+                
+                <div class="activity-item">
+                    <h4>Co-Lead, Google Developer Student Clubs (GDSC)</h4>
+                    <p>
+                        Led coding sessions and organized developer meetups focused on Android, web, and cloud technologies. 
+                        Mentored 50+ junior students in technical and soft skills, helping them build projects and 
+                        prepare for technology careers.
+                    </p>
+                </div>
+                
+                <div class="activity-item">
+                    <h4>Member, Enactus Presentation Team</h4>
+                    <p>
+                        Participated in national-level competitions, presenting entrepreneurial solutions with social impact. 
+                        Specialized in storytelling, pitching, and presentation design, helping the team communicate 
+                        complex business solutions effectively to judges and stakeholders.
+                    </p>
+                </div>
+                
+                <div class="activity-item">
+                    <h4>IEEE Xtreme 24-Hour Programming Competition</h4>
+                    <p>
+                        Competed in an international coding challenge, solving algorithmic problems under tight time constraints. 
+                        Collaborated with team members to tackle complex programming challenges and improve problem-solving skills 
+                        in a high-pressure environment.
+                    </p>
+                </div>
+                
+                <div class="activity-item">
+                    <h4>ROV Robotics Competition Team Member</h4>
+                    <p>
+                        Contributed to the design and testing of an underwater remotely operated vehicle. 
+                        Focused on system integration, technical documentation, and hardware-software coordination 
+                        for complex robotic systems in challenging environments.
+                    </p>
+                </div>
+                
+                <div class="activity-item">
+                    <h4>Technical Support Volunteer, World Urban Forum 12</h4>
+                    <p>
+                        Assisted in the setup and maintenance of technical equipment during the international UN-Habitat conference. 
+                        Supported live sessions, managed digital presentation tools, and provided on-site technical assistance 
+                        to speakers and delegates from around the world.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Let's Connect</h2>
+            <p class="section-subtitle fade-in">
+                Ready to discuss opportunities or collaborate on exciting projects? 
+                I'm always open to connecting with fellow professionals and exploring new challenges.
+            </p>
+            
+            <div class="contact-links fade-in">
+                <a href="mailto:salwatamer8901@gmail.com" class="contact-link">
+                    <span>📧</span> Email Me
+                </a>
+                <a href="http://www.linkedin.com/in/salwa-tamer-bahaa-eldin-5968b6235" class="contact-link" target="_blank">
+                    <span>💼</span> LinkedIn
+                </a>
+                <a href="tel:+201098970248" class="contact-link">
+                    <span>📱</span> Call Me
+                </a>
+            </div>
+            
+            <div style="margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.1); border-radius: 12px; text-align: center;">
+                <p style="margin: 0; font-size: 1.1rem; opacity: 0.9;">
+                    Thank you for visiting my portfolio! Looking forward to connecting with you.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href') === '#' + current) {
+                    a.classList.add('active');
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(15, 32, 39, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.4)';
+            } else {
+                navbar.style.background = 'rgba(15, 32, 39, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
